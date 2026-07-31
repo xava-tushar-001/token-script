@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-ink text-chalk font-sans;
+    /* faint technical grid, kept very quiet */
+    background-image:
+      linear-gradient(rgba(52, 227, 154, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(52, 227, 154, 0.025) 1px, transparent 1px);
+    background-size: 44px 44px;
+    background-position: center;
+  }
+  input:-webkit-autofill {
+    -webkit-text-fill-color: #e8edea;
+    -webkit-box-shadow: 0 0 0 1000px #0c120f inset;
+  }
+}
+
+@layer utilities {
+  .field {
+    @apply w-full rounded-lg border border-line bg-panel2 px-3.5 py-2.5 font-mono text-sm text-chalk
+      placeholder:text-fog/60 outline-none transition
+      focus:border-mint/60 focus:shadow-glow;
+  }
+  .label {
+    @apply mb-1.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-fog;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
